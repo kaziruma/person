@@ -38,8 +38,8 @@ const data = [
   // siem vi whats app
   {
       name: "Shohrab Hossain",
-      email: "",
-      image: "https://ibb.co.com/N6YQF2wC",
+      email: "discord creator",
+      image: "https://i.ibb.co.com/8D8TmgFs/image.png",
       description: "",
       social: {
         // redhat: "",
@@ -52,23 +52,24 @@ const data = [
       tags: ["JavaScript", "React", "Node.js"],
       label: "Full-Stack Developer"
   },
-{
-    name: "",
-    email: "",
-    image: "",
-    description: "",
-    social: {
-      redhat: "",
-      discord: "",
-      linkedin: "",
-      github: "",
-      twitter: "",
-      facebook: "",
-      whatsapp: "https://wa.me/1234567890"
-    },
-    tags: ["JavaScript", "React", "Node.js"],
-    label: "Full-Stack Developer"
-},
+  {
+      name: "Abdur Rahim  (Coder)",
+      email: "create here own business",
+      image: "https://scontent.fdac5-1.fna.fbcdn.net/v/t39.30808-1/482086227_1964083400790094_3203297488187245822_n.jpg?stp=c162.0.795.795a_dst-jpg_s200x200_tt6&_nc_cat=110&ccb=1-7&_nc_sid=1d2534&_nc_ohc=2EkVVTEfHyMQ7kNvgEbIHnI&_nc_oc=Adl6IPzIP1nz-1t-X2VawHsaIlrdb6G1YAhIO_N30fPmBSCHz-VmaQweuR_T_3SxhIo&_nc_zt=24&_nc_ht=scontent.fdac5-1.fna&_nc_gid=TtQYUbvAWLCca0IOlTUOIw&oh=00_AYHC19nyh_TRT3-BvCRli3_H3LtZtgW_DqORGXfpScdGKA&oe=67E9EE37",
+      description: "",
+      social: {
+        redhat: "https://coderrahim.me/",
+        // discord: "",
+        // linkedin: "",
+        github: "https://github.com/coderrahim",
+        // twitter: "",
+        facebook: "https://www.facebook.com/CoderRahimBD",
+        whatsapp: "https://wa.me/01609033435"
+      },
+      tags: ["JavaScript", "React", "Node.js"],
+      label: "Full-Stack Developer"
+  },
+
 
 ]
 
