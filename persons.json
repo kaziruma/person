@@ -1,0 +1,50 @@
+[
+  {
+    "name": "Ahmmed Shakib",
+    "email": "john.doe@example.com",
+    "image": "https://scontent.fdac5-1.fna.fbcdn.net/v/t39.30808-1/363405226_283873430905401_8570414994521243218_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=111&ccb=1-7&_nc_sid=e99d92&_nc_ohc=4v-21o-tPC4Q7kNvgFZNcU6&_nc_oc=AdnuWjW5SsyEgabkMlxtFiSvP6lyd4JQFDIyVT59uweGVlX9VQgQmEEwTELb-8Hmi3U&_nc_zt=24&_nc_ht=scontent.fdac5-1.fna&_nc_gid=cY8VnGpm2SW4zWx1UpBR6Q&oh=00_AYHjlEK7Tq7OBy11yo_iAOPvA11rDycb01w61MoaY36Bvw&oe=67E957C8",
+
+    "description": "Web Developer & Frontend Enthusiast Engineer in Computer Science & Tech Innovator",
+    "social": {
+      "linkedin": "https://linkedin.com/in/johndoe",
+      "github": "https://github.com/johndoe",
+      "twitter": "https://twitter.com/johndoe",
+      "facebook": "https://facebook.com/janesmith",
+      "whatsapp": "https://wa.me/01939814448"
+    },
+    "tags": ["JavaScript", "React", "Node.js"],
+    "label": "Full-Stack Developer"
+  },
+  {
+    "name": "Ahmmed Shakib",
+    "email": "john.doe@example.com",
+    "image": "https://scontent.fdac5-1.fna.fbcdn.net/v/t39.30808-1/363405226_283873430905401_8570414994521243218_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=111&ccb=1-7&_nc_sid=e99d92&_nc_ohc=4v-21o-tPC4Q7kNvgFZNcU6&_nc_oc=AdnuWjW5SsyEgabkMlxtFiSvP6lyd4JQFDIyVT59uweGVlX9VQgQmEEwTELb-8Hmi3U&_nc_zt=24&_nc_ht=scontent.fdac5-1.fna&_nc_gid=cY8VnGpm2SW4zWx1UpBR6Q&oh=00_AYHjlEK7Tq7OBy11yo_iAOPvA11rDycb01w61MoaY36Bvw&oe=67E957C8",
+
+    "description": "Web Developer ",
+    "social": {
+      "facebook": "https://www.facebook.com/fo.afnan"
+    },
+    "tags": ["JavaScript", "React", "Node.js"],
+    "label": "Full-Stack Developer"
+  },
+
+
+
+
+
+  {
+    "name": "John Doe",
+    "email": "john.doe@example.com",
+    "image": "https://graph.facebook.com/{facebook_username}/picture?type=large",
+    "description": "A passionate full-stack developer with expertise in MERN stack.",
+    "social": {
+      "linkedin": "https://linkedin.com/in/johndoe",
+      "github": "https://github.com/johndoe",
+      "twitter": "https://twitter.com/johndoe",
+      "facebook": "https://www.facebook.com/profile.php?id=100008987804482",
+      "whatsapp": "https://wa.me/1234567890"
+    },
+    "tags": ["JavaScript", "React", "Node.js"],
+    "label": "Full-Stack Developer"
+  }
+]
