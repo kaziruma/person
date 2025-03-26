@@ -25,111 +25,100 @@
         </div>
     </div>
     
-    <script>
-        // Example fallback data (if JSON file can't be fetched locally)
-        const fallbackData = [
-            {
-                "name": "John Doe",
-                "email": "john.doe@example.com",
-                "image": "https://via.placeholder.com/150",
-                "description": "A passionate full-stack developer with expertise in MERN stack.",
-                "social": {
-                    "linkedin": "https://linkedin.com/in/johndoe",
-                    "github": "https://github.com/johndoe",
-                    "twitter": "https://twitter.com/johndoe",
-                    "facebook": "https://facebook.com/johndoe",
-                    "whatsapp": "https://wa.me/1234567890"
-                },
-                "tags": ["JavaScript", "React", "Node.js"],
-                "label": "Full-Stack Developer"
-            },
-            {
-                "name": "Jane Smith",
-                "email": "jane.smith@example.com",
-                "image": "https://via.placeholder.com/150",
-                "description": "Frontend developer with expertise in React and CSS.",
-                "social": {
-                    "linkedin": "https://linkedin.com/in/janesmith",
-                    "github": "https://github.com/janesmith",
-                    "twitter": "https://twitter.com/janesmith",
-                    "facebook": "https://facebook.com/janesmith",
-                    "whatsapp": "https://wa.me/0987654321"
-                },
-                "tags": ["CSS", "React", "HTML"],
-                "label": "Frontend Developer"
-            }
-        ];
-
-        // Fetch persons data from the JSON file or fallback to example data
-        async function fetchPersons() {
-            try {
-                const response = await fetch('persons.json');
-                if (!response.ok) throw new Error("Network response was not ok");
-                return await response.json();
-            } catch (error) {
-                console.error('Fetching error:', error);
-                return fallbackData; // Use fallback data if JSON is not available
-            }
-        }
+    <!-- Full Page Overlay -->
+    <div id="overlay" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center hidden">
+        <div class="bg-white p-6 rounded-lg shadow-lg max-w-md w-full relative">
+            <button onclick="closeOverlay()" class="absolute top-2 right-2 text-xl">&times;</button>
+            <div id="overlay-content"></div>
+        </div>
+    </div>
+    
+    <script type="module">
+        import data from './persons.js';
 
         function createCard(person, index) {
             return `
-                <div class="bg-white p-6 shadow-lg rounded-lg flex flex-col items-center text-center">
+                <div class="bg-white p-6 shadow-lg rounded-lg flex flex-col items-center text-center person-card" data-name="${person.name.toLowerCase()}" data-tags="${person.tags.join(',').toLowerCase()}">
                     <img src="${person.image}" alt="${person.name}" class="w-24 h-24 rounded-full mb-3">
                     <h2 class="text-xl font-bold mb-1">${person.name}</h2>
                     <p class="text-sm text-gray-500">${person.email}</p>
 
-                    <div class="flex justify-center space-x-3 mt-3">
+                     <div class="flex justify-center space-x-3 mt-3">
                         ${Object.entries(person.social).map(([key, link]) => `
-                            <a href="${link}" target="_blank" class="relative group text-gray-600 hover:text-purple-500 text-xl">
-                                <i class="fa-brands fa-${key} text-purple-600 hover:text-purple-400"></i>
-                                <span class="absolute bottom-full left-1/2 transform -translate-x-1/2 bg-gray-800 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100">${link}</span>
-                            </a>`).join('')}
+                            <a href="${link}" target="_blank" class="text-xl text-gray-600 hover:text-purple-500">
+                                <i class="fa-brands fa-${key}"></i>
+                            </a>
+                        `).join('')}
                     </div>
                     <div class="mt-3 text-sm font-medium bg-gray-200 px-3 py-1 rounded">${person.label}</div>
                     <div class="mt-1 text-xs text-gray-500">Tags: ${person.tags.join(', ')}</div>
-                    <button onclick="toggleDescription(${index})" class="mt-2 text-blue-500">View Details</button>
-                    <p class="text-sm text-gray-700 mt-2 hidden" id="desc-${index}">${person.description}</p>
+
+
+                    <button class="mt-2 text-blue-500" onclick="viewDetails(${index})">View Details</button>
                 </div>
             `;
         }
 
-        async function renderCards() {
-            const persons = await fetchPersons();
+        function renderCards(persons = data) {
             document.getElementById('cards-container').innerHTML = persons.map((person, index) => createCard(person, index)).join('');
-            renderTags(persons);
         }
 
-        function toggleDescription(index) {
-            const desc = document.getElementById(`desc-${index}`);
-            desc.classList.toggle('hidden');
-        }
-
-        function renderTags(persons) {
-            const allTags = [...new Set(persons.flatMap(person => person.tags))];
-            const filtersDiv = document.getElementById('filters');
-            filtersDiv.innerHTML = allTags.map(tag => `
+        function renderFilters() {
+            const allTags = [...new Set(data.flatMap(person => person.tags))];
+            document.getElementById('filters').innerHTML = allTags.map(tag => `
                 <label class="block mb-2">
                     <input type="checkbox" value="${tag}" class="tag-filter mr-2"> ${tag}
                 </label>
             `).join('');
         }
 
-        async function filterCards() {
-            const searchQuery = document.getElementById('search').value.toLowerCase();
-            const selectedTags = Array.from(document.querySelectorAll('.tag-filter:checked')).map(input => input.value);
-            const persons = await fetchPersons();
-            const filteredPersons = persons.filter(person => {
-                const matchesSearch = person.name.toLowerCase().includes(searchQuery);
-                const matchesTags = selectedTags.length === 0 || selectedTags.every(tag => person.tags.includes(tag));
-                return matchesSearch && matchesTags;
-            });
-            document.getElementById('cards-container').innerHTML = filteredPersons.map((person, index) => createCard(person, index)).join('');
-        }
+       function filterCards() {
+    const searchQuery = document.getElementById('search').value.toLowerCase();
+    const selectedTags = Array.from(document.querySelectorAll('.tag-filter:checked')).map(input => input.value.toLowerCase());
+
+    const filteredPersons = data.filter(person => {
+        const personName = person.name ? person.name.toLowerCase() : "";
+        const personTags = person.tags ? person.tags.map(tag => tag.toLowerCase()) : [];
+
+        const matchesSearch = personName.includes(searchQuery);
+        const matchesTags = selectedTags.length === 0 || selectedTags.every(tag => personTags.includes(tag));
+
+        return matchesSearch && matchesTags;
+    });
+
+    renderCards(filteredPersons);
+}
+
+        window.viewDetails = function(index) {
+            const person = data[index];
+            document.getElementById('overlay-content').innerHTML = `
+                <div class="flex flex-col items-center text-center">
+                    <img src="${person.image}" alt="${person.name}" class="w-32 h-32 rounded-full mx-auto mb-3">
+                    <h2 class="text-xl font-bold">${person.name}</h2>
+                    <p class="text-sm text-gray-500">${person.email}</p>
+                    <p class="text-sm text-gray-700 mt-2">${person.description}</p>
+                    <div class="flex justify-center space-x-3 mt-3">
+                        ${Object.entries(person.social).map(([key, link]) => `
+                            <a href="${link}" target="_blank" class="text-xl text-gray-600 hover:text-purple-500">
+                                <i class="fa-brands fa-${key}"></i>
+                            </a>
+                        `).join('')}
+                    </div>
+                    <div class="mt-3 text-sm font-medium bg-gray-200 px-3 py-1 rounded">${person.label}</div>
+                    <div class="mt-1 text-xs text-gray-500">Tags: ${person.tags.join(', ')}</div>
+                </div>
+            `;
+            document.getElementById('overlay').classList.remove('hidden');
+        };
+
+        window.closeOverlay = function() {
+            document.getElementById('overlay').classList.add('hidden');
+        };
 
         document.getElementById('search').addEventListener('input', filterCards);
         document.getElementById('filters').addEventListener('change', filterCards);
 
+        renderFilters();
         renderCards();
     </script>
 </body>
