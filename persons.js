@@ -91,7 +91,7 @@ const data = [
     name: "Tipu Sultan",
     email: "create here own business",
     image:
-      "https://scontent.fdac5-1.fna.fbcdn.net/v/t39.30808-1/482086227_1964083400790094_3203297488187245822_n.jpg?stp=c162.0.795.795a_dst-jpg_s200x200_tt6&_nc_cat=110&ccb=1-7&_nc_sid=1d2534&_nc_eui2=AeHiazlx8L1B7O1x07HREdGOo6pQ1UTE89GjqlDVRMTz0ROTpKwctd1p3iFQlPuv8mFXxNZsWErTxEk8_sjeXyBj&_nc_ohc=FwpL6gsG84oQ7kNvwELIFeE&_nc_oc=AdmVGQtYj89VgrCEVxlGkMh8ILO-gEwFw-oktm0583hniuvVjg9HRilFrsoDRJsoxTo&_nc_zt=24&_nc_ht=scontent.fdac5-1.fna&_nc_gid=qwU9uj0Iop2kj8dFaoHzsA&oh=00_AfFpmA4Dz1k9uQrHhcJN49Rp2vy194eo3FJHDtfQXeN2Tg&oe=67FC6337",
+      "https://scontent.fdac5-2.fna.fbcdn.net/v/t39.30808-1/465329789_122133819350461986_129610439148897934_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=107&ccb=1-7&_nc_sid=1d2534&_nc_eui2=AeEZvFeo9mijS_6i7h5IKUxd_9SH7XPFdjr_1Iftc8V2Oj75VmhvuHYWzD1rQkhc2H5_al2XVJl4gsZs4H0STf8a&_nc_ohc=77EsGpCkpcYQ7kNvwGv3e2o&_nc_oc=Adn1KkyL_qWfTfv3zlVCmiKcv9AfYUSv2o5C5sbOt0GTVa131IwP3_jF6iGZIblQuN0&_nc_zt=24&_nc_ht=scontent.fdac5-2.fna&_nc_gid=TwFnICjIhTSA56UdvAz2bA&oh=00_AfFe-t_s1-jG2GXsjAOr1WJgWVEP6o3IigRx3eztmISeRQ&oe=67FDDBF7",
     description: "",
     social: {
       // redhat: "https://coderrahim.me/",
